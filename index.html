@@ -1,20 +1,166 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
-</head>
+<title>Alex Kay blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
 
-<body>
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32">
+  <h1><b>ALEX KAY BLOG</b></h1>
+  <p>Welcome to my blog about <span class="w3-tag">AI and something else...</span></p>
+</header>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
-  
-<p>Second message!</p>
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <img src="./images/blogs/kg.png" alt="kg" style="width:100%">
+    <div class="w3-container">
+      <h3><b>KNOWLEDGE GRAPHS</b></h3>
+      <h5>Real world entities networking., <span class="w3-opacity">February 28, 2022</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>
+        Math abstraction, graph-structured data model or topology to intergrate data. Knowledge graphs (KGs) are used to store interlinked entities. Relationships also can be described using KG
+        abstraction and be used for calculating relationship among the objects. As a consequence KG allow to build mathematical apparatus describing options which can be used in particular purposes.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+  <img src="./images/blogs/embeddings.png" alt="embeddings" style="width:100%">
+    <div class="w3-container">
+      <h3><b>EMBEDDINGS</b></h3>
+      <h5>Distributed semantic, <span class="w3-opacity">February 21, 2022</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>
+        Embeddings as a vector representation allows to describe objects in a continuous N dimetional vector space. It is the most commong methid for building the systems which must
+        to calculate relations among the objects (ex: tokens in NLP) using their vector representation.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  <img src="./images/me.jpg" style="width:100%">
+    <div class="w3-container w3-white">
+      <h4><b>Alexander Kaygorodov</b></h4>
+      <p>
+        Hi, friends! I am glad to see you on my web blog where I share my own experience, thoughts, and something more!
+      </p>
+      <p>
+        Mostly I am interested in AI-driven techs, Deep Learning research, and data science in general.
+        I with my friends like to have pretty long discussions about the future of AI, doing mutual projects together.
+      </p>
+      <p>
+        Currently, I am ML engineer at <a href="https://vk.company/en/" style="text-decoration:none">VK</a> where I build machine learning models and ml development products doing the
+        platform more special and lovely for users and convenient tools for development for our company.
+      </p>
+    </div>
+  </div><hr>
+
+  <!-- Contacts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>My contacts</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="./images/github_icon.png" alt="Image" class="w3-left w3-margin-right" style="width:35px">
+        <span class="w3-large">
+          <a href="https://github.com/AlexKay28" style="text-decoration:none">Github</a>
+        </span><br>
+      </li>
+      <li class="w3-padding-16">
+        <img src="./images/linkedin_icon.png" alt="Image" class="w3-left w3-margin-right" style="width:35px">
+        <span class="w3-large">
+          <a href="https://www.linkedin.com/in/alexkay28" style="text-decoration:none">LinkedIn</a>
+        </span><br>
+      </li>
+      <li class="w3-padding-16">
+        <img src="./images/inst_icon.png" alt="Image" class="w3-left w3-margin-right" style="width:35px">
+        <span class="w3-large">
+          <a href="https://www.instagram.com/alexkay.28" style="text-decoration:none">Instagram</a>
+        </span><br>
+      </li>
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="./images/vk_icon.png" alt="Image" class="w3-left w3-margin-right" style="width:35px">
+        <span class="w3-large">
+          <a href="https://vk.com/alexkay28" style="text-decoration:none">VK</a>
+        </span><br>
+      </li>
+    </ul>
+  </div>
+  <hr>
+
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p>
+      <span class="w3-tag w3-black w3-margin-bottom">AI</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Russia</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Machine Learning</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Optimization</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Data Science</span>
+    </p>
+    </div>
+  </div>
+
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+</footer>
 
 </body>
 </html>
