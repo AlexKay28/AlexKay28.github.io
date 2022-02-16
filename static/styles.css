@@ -4,3 +4,13 @@
     height: 100px;
     background-size: cover;
 }
+
+.centered {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: red; /* Not necessary just to see the result clearly */
+}
