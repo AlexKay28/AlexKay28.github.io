@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="../../static/styles.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
 <body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content,
@@ -25,28 +28,96 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Grid -->
   <div class="w3-row">
 
-  <h1><b>SPACE DISTANCES</b></h1>
+  <h1><b>METRIC SPACE</b></h1>
   <p>
-    We can have entities described in N-dimensional space and also we can apply linear algebra to it, but do we really know that we have only one way to calculate distances
-    among the vectors? It is awesome, but we can expand our assumptions on comparing operations to find differences and commons more effectively and even maybe faster!
+    We might have entities described by N-dimensional vectors so we can apply some other math abstractions
+    effectively, but do we really know that we have only one way to calculate distances
+    among the vectors? We are able to expand our assumptions on comparing operations to find differences and commons
+    more effectively and even maybe faster!
   </p>
 
   <h2><b>Introduction</b></h2>
-  Content
+  Long time ago, people introduce such terms as <b>time</b> and <b>space</b>. Both of them are transcendental and are used
+  as abstraction to describe word around us. Such definition for this terms wasnt given by myself only, but we won't discuss it
+  in this paper right now, but I recommend you to search this philosophy question by yourself.
+  <br>
+  <br>
+  When you design metrics to compare things, you are a lot more free in designing of it, you aren't restricted by the laws and
+  nature principles, but you have to follow some simple rules which makes your systems comparable and scalable to other ones. And, as you
+  already know, it is the topic of the paper.
 
   <h2><b>History</b></h2>
-  Content
+  People have been using the idea of metrics all the time they do the deal with them, but as <b>metric spaces</b> as discipline was
+  introduced in 1906 by German mathematician Maurice Frechet. The discipline took an idea of topological properties which leads to the
+  study of topological spaces.
 
   <h2><b>Base definitions</b></h2>
-  Content
+  Element (usually called point) - distinct object that belongs to set and have properties. In classical
+  Euclidean geometry, an element is a primitive notion that models an exact location in the space.
+  <br>
+  <br>
+  Set - mathematical model for a collection of elements, which can be mathematical objects of any kind.
+  <br>
+  <br>
+  Metric (distance function, distance) - is a function that gives a distance between each pair of elements (point) of a set.
+  The metric satisfies a few simple properties:
+  <ul>
+    <li>The distance from A to B is zero if and only if A and B are the same point</li>
+    $$ {d(A, A) = 0} $$
+    <li>The distance between two distinct points is positive</li>
+    $$ {d(A, B) > 0, if A \neq B} $$
+    <li>The distance from A to B is the same as the distance from B to A</li>
+    $$ {d(A, B) = d(B, A)} $$
+    <li>The distance from A to B is less that or equal to the distance from A to B via any third point C</li>
+    $$ {d(A, C) + d(C, B) \geq d(A, B)} $$
+  </ul>
+  Metric space - is non empty set together with a metric on the set.
+  <br>
+  <br>
 
   <h2><b>Idea</b></h2>
-  Content
+  Comparing object helps to defferentiate things we are working with. The quality and principles of comparing
+  might help better descrive the system and introduce mathematical models. In comparing purposes, firstly, we must define
+  properties we are working with and then define the way we leverage them. Common example of the properties list is N-dimensional vector
+  which aggregates them, but it's not the only one way how to do this.
+  <br>
+  People used to think about metrics in terms of linear geometry distances.
+  Also we may use metrics of other forms,
+  for example such metrics as Levenshtein distance, which allows to measure
+  the difference between to sequences. And there are a lot of others: Helly metric, Graph edit distance, descrete metrics, etc.
 
   <h2><b>Usage examples</b></h2>
-  Content
-
-
+  The common example of such distance - Euclidean distance
+  which calculates absolute difference between two elements. It can be calculated from the Cartesian coordinates of
+  the points using the Pythagorean theorem, therefore occasionally being called the Pythagorean distance.
+  <br><br>
+  <p style="text-align:center;">
+    <img src="../../images/blogs/euclidean_distance.png" style="height:250px;object-fit: cover;">
+  </p>
+  <br><br>
+  Minkowski distance is a metric in a normed vector space which can be considered as a generalization of
+  both the Euclidean and Mangattan distances. The Minkowski distance of the order p (p is an integer) between
+  two points X, Y
+  $$ {X = (x_1, x_2, ..., x_n), Y = (y_1, y_2, ..., y_n) \in \mathbb{R}^n} $$
+  Defined as:
+  $$ {\displaystyle D\left(X,Y\right)=\left(\sum _{i=1}^{n}|x_{i}-y_{i}|^{p}\right)^{\frac {1}{p}}} $$
+  <ul>
+    <li>p = 2: Euclidean distance</li>
+    <li>p = 1: Manhattan distance</li>
+    <li>p -> inf: max(x_i, y_i)</li>
+    <li>p -> -inf: min(x_i, y_i)</li>
+  </ul>
+  <img src="../../images/blogs/distances.png", style="width:100%; height:150px;object-fit: cover;">
+  <br><br>
+  Levenshtein distance may also be referred to as edit distance, although that term may also denote a larger family of distance metrics
+  known collectively as edit distance. It is closely related to pairwise string alignments.
+  For example, the Levenshtein distance between "kitten" and "sitting" is 3, since the following 3 edits change
+  one into the other, and there is no way to do it with fewer than 3 edits:
+  <ul>
+    <li>kitten → sitten (substitution of "s" for "k"),</li>
+    <li>sitten → sittin (substitution of "i" for "e"),</li>
+    <li>sittin → sitting (insertion of "g" at the end).</li>
+  </ul>
 
   <!-- END GRID -->
   </div><br>
