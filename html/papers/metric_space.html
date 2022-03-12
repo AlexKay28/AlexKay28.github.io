@@ -10,6 +10,7 @@
 
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+p { text-indent: 15px; }
 </style>
 
 <body class="w3-light-grey">
@@ -40,8 +41,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   Long time ago, people introduce such terms as <b>time</b> and <b>space</b>. Both of them are transcendental and are used
   as abstraction to describe word around us. Such definition for this terms wasnt given by myself only, but we won't discuss it
   in this paper right now, but I recommend you to search this philosophy question by yourself.
-  <br>
-  <br>
+  <p>
   When you design metrics to compare things, you are a lot more free in designing of it, you aren't restricted by the laws and
   nature principles, but you have to follow some simple rules which makes your systems comparable and scalable to other ones. And, as you
   already know, it is the topic of the paper.
@@ -54,11 +54,9 @@ and is wrapped around the whole page content, except for the footer in this exam
   <h2><b>Base definitions</b></h2>
   Element (usually called point) - distinct object that belongs to set and have properties. In classical
   Euclidean geometry, an element is a primitive notion that models an exact location in the space.
-  <br>
-  <br>
+  <p>
   Set - mathematical model for a collection of elements, which can be mathematical objects of any kind.
-  <br>
-  <br>
+  <p>
   Metric (distance function, distance) - is a function that gives a distance between each pair of elements (point) of a set.
   The metric satisfies a few simple properties:
   <ul>
@@ -72,15 +70,14 @@ and is wrapped around the whole page content, except for the footer in this exam
     $$ {d(A, C) + d(C, B) \geq d(A, B)} $$
   </ul>
   Metric space - is non empty set together with a metric on the set.
-  <br>
-  <br>
+  <p>
 
   <h2><b>Idea</b></h2>
   Comparing object helps to defferentiate things we are working with. The quality and principles of comparing
   might help better descrive the system and introduce mathematical models. In comparing purposes, firstly, we must define
   properties we are working with and then define the way we leverage them. Common example of the properties list is N-dimensional vector
   which aggregates them, but it's not the only one way how to do this.
-  <br>
+  <p>
   People used to think about metrics in terms of linear geometry distances.
   Also we may use metrics of other forms,
   for example such metrics as Levenshtein distance, which allows to measure
@@ -90,11 +87,11 @@ and is wrapped around the whole page content, except for the footer in this exam
   The common example of such distance - Euclidean distance
   which calculates absolute difference between two elements. It can be calculated from the Cartesian coordinates of
   the points using the Pythagorean theorem, therefore occasionally being called the Pythagorean distance.
-  <br><br>
+  <p><p>
   <p style="text-align:center;">
     <img src="../../images/blogs/euclidean_distance.png" style="height:250px;object-fit: cover;">
   </p>
-  <br><br>
+  <p><p>
   Minkowski distance is a metric in a normed vector space which can be considered as a generalization of
   both the Euclidean and Mangattan distances. The Minkowski distance of the order p (p is an integer) between
   two points X, Y
@@ -108,7 +105,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <li>p -> -inf: min(x_i, y_i)</li>
   </ul>
   <img src="../../images/blogs/distances.png", style="width:100%; height:150px;object-fit: cover;">
-  <br><br>
+  <p><p>
   Levenshtein distance may also be referred to as edit distance, although that term may also denote a larger family of distance metrics
   known collectively as edit distance. It is closely related to pairwise string alignments.
   For example, the Levenshtein distance between "kitten" and "sitting" is 3, since the following 3 edits change
@@ -121,12 +118,12 @@ and is wrapped around the whole page content, except for the footer in this exam
 
   <h2><b>Further reading</b></h2>
   Some material you can keep searching from:
-  <br><a href="https://en.wikipedia.org/wiki/Metric_space#Topological_properties">Metric space, wiki</a>
-  <br><a href="https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/minkdist.html">NIST. Minkowski distance</a>
-  <br><a href="https://itnext.io/string-similarity-the-basic-know-your-algorithms-guide-3de3d7346227">String similarity</a>
+  <p><a href="https://en.wikipedia.org/wiki/Metric_space#Topological_properties">Metric space, wiki</a>
+  <p><a href="https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/minkdist.html">NIST. Minkowski distance</a>
+  <p><a href="https://itnext.io/string-similarity-the-basic-know-your-algorithms-guide-3de3d7346227">String similarity</a>
 
   <!-- END GRID -->
-  </div><br>
+  </div><p>
 
 <!-- END w3-content -->
 </div>
