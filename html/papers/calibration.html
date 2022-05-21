@@ -10,7 +10,20 @@
 
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-p { text-indent: 15px; }
+p {
+  text-align: justify;
+  font-size: 18px;
+  text-indent: 15px;
+}
+ul {
+  font-size: 18px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
 </style>
 
 <body class="w3-light-grey">
@@ -25,37 +38,178 @@ and is wrapped around the whole page content, except for the footer in this exam
       <a href="../../index.html" style="text-decoration:none">ALEX KAY BLOG</a>
     </b></h1>
   </header>
+  <hr style="border: 1px solid #DEDDD9;">
 
   <!-- Grid -->
   <div class="w3-row">
 
-  <h1><b>THE NAME OF THE PAPER</b></h1>
+  <h1><b>MODEL CALIBRATION</b></h1>
   <p>
-    THE SAME TEXT FROM MAIN PAGE
-  </p>
+  Model calibration is a model postprocessing operation dedicated to improving probability estimates.
+  Calibration helps researchers to interpret results better, provide correct error analysis,
+  and confidently apply models in the hight risks applications.
 
   <h2><b>Introduction</b></h2>
-  INTRO
+  <p>
+  Model calibration is needed when you need to get a model which predicts fair probabilities for a given example. But what is
+  the right probabilities and why is it so important?
+
+  <p>
+  Let's take a view at the next example. Imagine a situation you have to model A and B. Both models have 90%
+  accuracy, and at the same time, models have different estimations for the N examples 0.91 and 0.99 respectively.
+  Which model is the best? Take a few seconds to think about it!
+
+  <p>
+  You are right, we should say model A is the best one because it understands its answers and it's not so overconfident as B. Model A takes into account its possible mistakes and helps to researcher not to overestimate itself.
+  Also, a model A can be called a "good calibrated model" because it knows that in 9% of cases it might have an error and it's
+  pretty much close to the truth, because the evaluated accuracy is equal to 90%.
 
   <h2><b>History</b></h2>
-  HISTORY
+  <p>
+  I have experience in working with personal medical data which was needed, pretty obvious, for models
+  developing in the healthcare industry. I and my team were building models to evaluate the probability of the
+  person being in a risk group for some disease. Eventually, the prepared model was used for large-scale predictions to provide
+  relevant to the disease patients which after should pass a bunch of medical tests and doctor visits to prove the diagnosis.
+  And it was super important to select them carefully because some of the tests are very expensive and the most relevant
+  patients must be checked as soon as possible to avoid dramatic consequences.
+
+  <p>
+  Let me explain with a simple story, it might make everything clear. The beginning of the story might remind you already described example in the intro, but think deeper about the second part, it will be the main point now.
+
+  <p>
+  Patient P got some problems with the lungs. P has dyspnea and cough. P comest to the doctor D1 and tells him about
+  problems. D1 tells him that the reason of the problems is the overweight and the late spring. P began to walk more and
+  noticed harder breathing + P has allergies. Five days after the visit P died because of the COVID. Another situation,
+  P comes to doctor D2 and tells him everything as well. D2 is a little bit more humble and doesn't overestimate himself.
+  D2 tells absolutely the same to P but also found out that P doesn't have a sense of smell and looks weaker than usual.
+  D2 decided to send a person to the tests and other doctors and COVID was detected, so P's life was saved.
+
+  <p>
+  Conclusion. Both doctors gave the wrong diagnosis, but the second one noticed some other symptoms and questioned the decision
+  which was a really crucial moment. D2, if transfer human confidence to the model's probabilities, was calibrated.
 
   <h2><b>Base definitions</b></h2>
-  DEFINITIONS
+  <p>
+  Predicted class probability - predicted by the classification model probability that an example
+  belongs to the positive class.
+
+  <p>
+  Bins - the intervals of some scale. For instance, 10 bins and the scale from 0 to 1 might be represented as intervals
+  among [0.0, 0.1, 0.2, ... 0.9, 1.0].
+
+  <p>
+  Perfectly calibrated model - the model whose prediction probabilities mirror the labeled examples ratio in the bin.
+  Or, model if for any p, a prediction of a class with confidence p is correct 100*p percent of the time.
+  $${{\mathbb{P}(\hat y=y |\hat p=p) = p, \forall p \in [0,1]}}$$
 
   <h2><b>Idea</b></h2>
-  IDEA
+  <p>
+  In practical appliations the idea of model calibration might be really useful if not viable. When it might be applied:
+  <ul>
+    <li>High risks applications.</li>
+    <li>Models combining. For instance, any tipe of blending.</li>
+    <li>Model improbing. Weak model's confidence and/or mistakes analysis.</li>
+  </ul>
+
+  <p>
+  In the picture below we can see three lines: for the perfectly calibrated model, LR, and RFC. Comparing RFC and LR
+  we will say that LR is calibrated better than RF model. It's also interesting to notice that linear models such as LR and MLP (Not
+  deep models) always are more calibrated than tree-like or SVC. In the case of tree-like models it usually ensembles and in
+  order to get good calibration you also need to have values close to 0 or 1, but in ensembles, it's harder to get
+  such values because of the nature of averaging decision among the multiple trees, but in the case of SVC the reason in the
+  using of margin which also pushes values away from 0-1 because it wants to focus in the harder examples first and find the
+  decision boundary for the hard samples of data.
+  </p><img src="../../images/blogs/calibration_models.png" alt="calibration_models" class="center">
+
+  <p>
+  I dont realy think it's convenient to build such visualisation as above. Maybe we might make some metrics to
+  evaluate how how good model is calibrated? Not really, such metrics already exists.
+  <ul>
+    <li>Expected calibration error. ECE.</li>
+    <li>Maximum calibration error. MCE.</li>
+  </ul>
+
+  <p>
+  The goal we are trying to reaching. Objective function, let's say.
+  $${{
+    \mathbb{E}_{\hat p}[|\mathbb{P}(\hat y = y |\hat p = p) - p) |]
+  }}$$
+
+  ECE and MCE approx functions look like:
+  $${{
+    ECE = \sum_{m=1}^{M} \frac{|B_{m}|}{n} |acc(B_{m}) - conf(B_{m})|
+  }}$$
+
+  $${{
+    MCE = max_{m \in [1..M]}(|acc(B_{m}) - conf(B_{m})|)
+  }}$$
+
+  <p>
+  Where:
+
+  $${{
+    acc(B_{m}) = \frac{1}{|B_{m}|} \sum_{i \in B_{m}}^{M}1(\hat y_{i} = y_{i})
+  }}$$
+
+  $${{
+    conf(B_{m}) = \frac{1}{|B_{m}|} \sum_{i \in B_{m}}^{M}\hat p_{i}
+  }}$$
+
+
+  <p>
+  The image below shows how MCE and ECE functions distributions might look like.
+  </p><img src="../../images/blogs/calibration_ece_mce.png" alt="calibration_ece_mce" class="center";>
+
+
 
   <h2><b>Usage examples</b></h2>
-  -
+  <p>
+  As a usage example, you can utilize the postprocessing model which aligns the model predictions making them calibrated.
+  For this purpose, you should holdout the dataset for calibration and fit the calibration model on the base model
+  predictions, where input is predicted probabilities and output is the real class value.
+
+  <p>
+  There are at least a couple of methods you can calibrate your model with. The most popular ones remain to be:
+  <ul>
+    <li>Platt scaling (also known as the sigmoid method).</li>
+    <li>isotonic regression.</li>
+  </ul>
+  <p>
+  Although some other alternatives are possible (for instance the tempered version of Platt scaling)
+
+  <p>
+  Platt scaling is tantamount to fitting a logistic regression line to the calibration plot. It works
+  well for small datasets, but it assumes that the calibration curve is
+  S-shaped (the only shape that the logistic regression line can fit).
+
+  <p>
+  In general, isotonic regression fits a non-decreasing line to a sequence of points in such a way
+  as to make the line as close to the original points as possible. When applied to the problem of
+  calibration, the technique aims to perform the regression on the original calibration curve. The
+  main advantage of using this method over Platt scaling is the fact that it doesn't require the
+  curve to be S-shaped. Its downside, however, is its sensitivity to outliers (it can overfit quite easily)
+  and thus works bests for large datasets - it's often recommended only if the calibration set has more
+  than a thousand examples.
 
   <h2><b>Further reading</b></h2>
-  -
+  Links:
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=FkfDlOnQVvQ">Model Calibration - is your model ready for the real world? - Inbar Naor - PyCon Israel 2018</a></li>
+    <li><a href="https://wttech.blog/blog/2021/a-guide-to-model-calibration/#:~:text=Calibration%20methods,tempered%20version%20of%20Platt%20scaling).">A guide to model calibration</a></li>
+    <li><a href="https://medium.com/@wolframalphav1.0/evaluate-the-performance-of-a-model-in-high-risk-applications-using-expected-calibration-error-and-dbc392c68318">
+      Evaluate the performance of a model in high-risk applications using Expected Calibration Error and Overconfidence Error </a></li>
+  </ul>
+
   <!-- END GRID -->
   </div><p>
 
 <!-- END w3-content -->
 </div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button onclick="location.href='../../index.html';" class="w3-button w3-black w3-padding-large w3-margin-bottom">Main page »</button>
+</footer>
 
 </body>
 </html>
